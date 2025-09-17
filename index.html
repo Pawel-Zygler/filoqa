@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filozofia Testowania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0d19;
+            color: #d1d5db;
+        }
+        .container {
+            max-width: 1000px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+        <div class="container mx-auto p-8 bg-[#1a1c2a] rounded-xl shadow-2xl">
+            <!-- Header Section -->
+            <header class="text-center mb-12">
+                <h1 class="text-5xl md:text-6xl font-extrabold text-[#c8d4e1] tracking-tight mb-4">Filozofia Testowania</h1>
+                <p class="text-lg text-[#9ca3af] max-w-2xl mx-auto">Próba naukowego podejścia do nauki o testowaniu oprogramowania.</p>
+            </header>
+
+            <!-- Language Switcher -->
+            <div class="flex justify-center space-x-4 mb-8">
+                <button id="pl-btn" class="px-6 py-2 rounded-full font-semibold transition-colors duration-300 bg-[#5d677d] hover:bg-[#7b8599] text-white">Polski</button>
+                <button id="en-btn" class="px-6 py-2 rounded-full font-semibold transition-colors duration-300 bg-[#3f4454] hover:bg-[#5d677d] text-white">English</button>
+            </div>
+
+            <!-- Content Area -->
+            <div id="content-container">
+                <!-- Polish Content -->
+                <div id="pl-content">
+                    <section class="mb-12">
+                        <h2 class="text-3xl font-bold text-[#c8d4e1] mb-4">WSTĘP</h2>
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">CZYM JEST FILOZOFIA?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Każda nauka o czymkolwiek musi posiadać swój pewnik, fundament, aksjomat któremu nikt nie zaprzecza i jest ewidentnie prawdą. Z niego konsekwentnie wyprowadzane są dalsze prawdy. Dla fizyki jest to założenie że wszechświat rządzi się prawami, które możemy odkryć i poznać. Dla filozofii jest to samowiedza, czyli to że nikt nie jest w stanie zaprzeczyć że istnieje. Czym zajmuje się filozofia w odróżnieniu do innych nauk? Zadaje pytania o najdalsze przyczyny podczas, gdy nauki szczegółowe o przyczyny bliższe. W praktyce wygląda to tak:
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4 pl-4 border-l-2 border-[#5d677d]">
+                            "Fizycy rozprawiają o różnych ciałach, o ich przymiotach i siłach — ale co to jest ciało? Co siła? Skąd pochodzą materia i siła? Fizjologowie badają różne kształty, objawy i warunki życia — ale co jest życie? Skąd się ono bierze? Matematycy ści­gają w nieskończoność stosunki liczb i kształtów — ale co to jest ilość? Czym jest przestrzeń?”
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Testerzy pytają: jaka jest przyczyna tego błędu? Filozofia testowania pyta: co to jest błąd? Tester pyta jaki jest cel tej funkcjonalności? Filozofia testowania pyta jaki jest cel testowania? Tester pyta jakiego rodzaju testu użyć? Filozofia pyta co to jest test? Filozofia szuka dalszej, albo najdalszej przyczyny zjawiska. Zatem filozofia jest odpowiedzią na pytanie o najdalsze przyczyny. Po tym, z pewnością zbyt krótkim wstępie, pragnę rozpocząć pracę nad filozofią testowania.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">FILOZOFIA TESTOWANIA: CZĘŚĆ PIERWSZA</h3>
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">DLACZEGO ISTNIEJE POTRZEBA ZATRUDNIANIA TESTERÓW?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Co jest przedmiotem testowania w naszej branży? Jest nim oprogramowanie. Jaki jest cel istnienia oprogramowania? Oprogramowanie “ma pomagać ludziom” To jest wymaganie stawiane oprogramowaniu. Zawsze tak jest, napisany kod nigdy nie pomaga np. komputerom czy urządzeniom, zawsze pomaga ono człowiekowi w rozwiązywaniu problemów krok po kroku. Oprogramowanie nie musi pomagać w szczytnych celach, może pomagać ludzi okraść. Wciąż jest to pomoc komuś w realizacji celu. Jeśli pomaganie ludziom to cel oprogramowania, to celem testowania jest uzyskanie jak najdoskonalszej informacji o SUT (system under test).. Testowanie, informując o zastanym stanie SUT, poznaje jego jakość.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">CZYM JEST OPROGRAMOWANIE?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Najszerzej rozumiane, oprogramowanie to zestaw programów wydających polecenia do wykonania dla komputera. Oprogramowania można rozdzielić na: 1. systemy operacyjne które zarządzają zasobami komputera i udostępniają serwis dla aplikacji komputera 2. aplikacje komputerowe, czyli konkretne zastosowania zasobów komputera przez użytkownika, albo inaczej wykonanie zadania użytkownika na komputerze. (Operating systems manage hardware and provide service for applications. Application software performs specific task for a user). Oprogramowanie, czy systemowe czy do konkretnego zastosowania zawsze ma wytyczone oczekiwanie zachowanie zanim zostanie wytworzone. Jest określana dla niego funkcja którą ma spełnić jako narzędzie użytkownika.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Niestety wytworzone oprogramowanie nie zawsze spełnia swoją funkcję. Dzieje się tak głównie ze względu na złożoność dzisiejszych systemów. Stawia to właściciela oprogramowania w pozycji ryzyka iż oprogramowanie nie spełni swojego celu. Aby to ryzyko zminimalizować oprogramowanie podlega testowaniu swojej funkcji zanim trafi do użytkownika. Testerzy porównując oczekiwanie zachowanie do zastanego meldują o odbieganiu od wymagań stawianych oprogramowaniu. Te dewiacje są nazywane błędami. Zatem potrzeba zatrudniania testerów zasadza się na pewniku iż oprogramowanie posiada błędy.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Z tego płynie wniosek że podstawowym aksjomatem testowania jest założenie iż oprogramowanie posiada błędy, a celem testowania jest ich wykrycie, aby dały informację o systemie czy ten wymagania spełnia na obecnym etapie rozwoju czy od nich odbiega. Informacja o produkcie to rezultat stosunku oczekiwanego do zastanego.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Stąd wiadomo, że celem testowania jest uzyskanie informacji o obecnym zachowaniu sut, podobnie do metody naukowej gdzie uzyskuje się informacje o zachowaniu badanego bytu. Ta informacja jest także podstawą do wprowadzania modyfikacji w systemie. Na testerze ciąży zatem odpowiedzialność, porównywalna z rolą właściciela, który określa w którym kierunku pójdzie rozwój produktu - tester również to robi, ale pośrednio, nie bezpośrednio. To na podstawie informacji od testera, programiści zmodyfikują kod, aby spełniał wymagania. Wyniki testu posłużą do zmiany systemu, w odróżnieniu do metody naukowej, gdzie po uzyskaniu wyniku z eksperymentu na systemie, potwierdza bądź zmienia się hipotezę, a nie system. Testowanie i metoda naukowa mają ze sobą wiele wspólnego, co niejedna już osoba musiała zauważyć.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">CO TO JEST BŁĄD?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            W dalszym rozwoju pracy należałoby zdefiniować co to jest błąd? Jest to kwestia ontologiczna, należy zadać pytanie co sprawia że coś jest uważane za błąd? Błąd to odstępstwo oprogramowania od wymagań jego zachowania. Istnienie błędu, implikuje iż oprogramowanie ma określone zachowanie, aby zostało uznane oprogramowaniem wysokiej jakości, oprogramowaniem działającym, bądź doskonałym. Do definicji jakości przejdę w innej części pracy.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Oto rozwój filozofii testowania i kilka pewników.
+                            Testowanie istnieje gdyż oprogramowanie posiada błędy. Oprogramowanie to mechanizm, który ma spełniać funkcję określoną wymaganiami. Błąd to odbieganie od wymagań w zachowaniu się oprogramowania. Spełnienie zaś wymagań czyni oprogramowanie wysokiej jakości.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">JAKIE SĄ NASTĘPSTWA ISTNIENIA BŁĘDÓW?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Jakie są konsekwencje istnienia błędów w oprogramowaniu? W takiej sytuacji mamy do czynienia z oprogramowaniem niespełniającym oczekiwań, zatem należałoby błędy wyeliminować by działało. Inna konsekwencja to, że istnienie błędów prowadzi do decyzji o poprawieniu systemu, a następnie sprawdzeniu skuteczności tej poprawki. Do tych spraw również przejdę w innej części pracy.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Kolejnym pytaniem jest w jaki sposób dowiadujemy się o istnieniu błędów w oprogramowaniu? To wymaga uruchamiania oprogramowania i przeprowadzenia zaplanowanych testów. Za wykrycie dewiacji w sofcie odpowiedzialny zatem jest przeprowadzony test.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">CO TO JEST TEST?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Co musi zawierać w sobie test, aby test był testem? Musi coś asercjonować. Koniecznym jest, aby każdy test dawał wynik prawda, fałsz bądź nieznany, inaczej nie da się uzyskać walidacji zachowania oprogramowania, a testy nie dostarczą danych potrzebnych do oceny jakości sut. Czy istnieje uniwersalny test który wykryje wszystkie błędy jedną asercją? Niestety nie. Nie ma jednego testu na wszystko, w praktyce stosuje się różne poziomy testów, a ich dobór zależy od dojrzałości oprogramowania.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Na jakie typy dzielą się testy? Albo inaczej, jakich metod używa się by szukać błędów w oprogramowaniu? To zawisło od funkcji oprogramowania oraz dojrzałości produktu. Jeśli oprogramowanie ma funkcję przeliczania odsetek, to nie będziemy szukać błędów w kupnie przedmiotów przechodzących przez koszyk. Drugim czynnikiem doboru testów są etapy rozwoju oprogramowania. Inny przykład, gdy bankowa aplikacja jest niedojrzała i nie ma jeszcze GUI, ale działa backend, to wybór padnie na testy API, a nie e2e. Typ testów ogranicza co możliwe w testowaniu, podobnie jak w programowaniu typ danych int ogranicza wejście tak, że nie trzeba się przejmować wejściem typu string, gdyż kompilator na to wejście nie pozwoli.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Każdy typ testu ma swoje możliwości i granice z istoty swojej definicji. Projektując zestaw testów trzeba wiedzieć co dany test sprawdza, a czego nie sprawdza. Test ma również założenia, pre kondycje, które zakładają że np. baza danych działa, albo mikroserwisy działają, serwisy zależne działają, pliki konfiguracyjne są wgrane itd. Zatem warunkiem wstępnym przed wyborem typu testu jest etap na którym znajduje się w rozwoju.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Jak zadezajnować, zaprojektować zestawy testowe? Musimy wybrać tyle typów, aby otrzymać pełną wiedzę o produkcie. Trzeba analizować system zarówno testami komponentowymi, integracyjnymi jak i e2e. Pojedynczy test dostarcza wiedzy w swoich granicach i założeniach wbudowanych w istotę i definicję.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Nowe pewniki: typ testów ogranicza co możliwe do poznania o sut.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">JAKIE GŁÓWNE TYPY TESTÓW WYRÓŻNIAMY?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            E2E zakłada że wszystkie systemy są włączone i działają, taki test swoje granice zatacza najdalej, pozwalając na test kompletnej logiki systemu. W E2E dbasz tylko o wejście użytkownika i wynik, nie to jak działa system w środku. Dokonują one asercji pełnej logiki systemu. Testy integracyjne polegają na sprawdzeniu jak się zachowują dwa komponenty systemu lub więcej razem. Test jednostkowy oraz integracyjny nie sprawdzi całej logiki systemu, ale jej części. Z kolei test E2E nie sprawdzi logiki pojedynczej funkcji komponentu, gdy całość systemu nie jest jeszcze gotowa. Z trzecim typem mamy do czynienia wtedy, gdy za przedmiot testów obierzemy wyizolowany komponent i sprawdzimy jego funkcje bez integracji z innymi komponentami. Test jednostkowy albo komponentowy jest największym ograniczeniem tego co sprawdza. Izoluje on pojedyńczy komponent sprawdzając jego zachowanie. Pozostałe testy są mieszanką typów powyższych.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Nowe pewniki: O istnieniu błędów informuje nas typ wykonanego testu. Testy posiadają swoje granice oraz założenia z definicji. Testy muszą twierdzić że coś jest albo nie jest poprzez asercję prawda bądź fałsz albo nieznany. Testy dostarczają dane, które pozwalają poznać jakość.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Oprogramowanie która nie działa zgodnie z zamierzeniami jest ontologicznie niepełne, co wymaga interwencji - testowania i poprawiania. Wszelkie błędy to oznaki niedoskonałości w realizacji bytu oprogramowania.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">CZY POKRYCIE WSZYSTKICH PRZYPADKÓW UŻYCIA JEST MOŻLIWE?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Co powinien zawierać w sobie test by otrzymać prawdziwe rezultaty o produkcie? Czy pokrycie testami wszystkich przypadków użycia jest możliwe? Wtedy otrzymalibyśmy wiedzę doskonałą. Czy może istnieją ograniczenia testowania w ogólności? Czy dobór testów to wszystko co potrzebne testerowi do testowania? Jaki jest rezultat stosowania różnych rodzajów testów?
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Rezultatem końcowym testowania jest pełna informacja o sut, zamiast częściowej. Ta wiedza to artefakt, wartości cennej i właściwie jest to główny produkt pracy testera. Co powinien zawierać w sobie test? Asercję która jest zbudowana na podstawie wymagań dla oprogramowania.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Dobrze stworzony zestaw testów da nam najpełniejszy obraz systemu, lecz dostarczanie tej wiedzy o sut ma swoje granice. Testowanie nie jest w stanie wykryć wszystkich możliwych błędów w złożonych systemach.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Gdy pod uwagę weźmiemy aplikację do kupna paliwa w 18 krajach dostępną przez web oraz mobile. Gdzie każdy użytkownik ma inny telefon, z innym osem, innym ekranem, do tego pod różnymi warunkami sieci oraz poziomu zaawansowania technicznego usera... Liczba wszystkich możliwych permutacji przypadków testowych szłaby w miliardy. Niewiele jest firm które mogłyby to finansowe obciążenie udźwignąć. Jest ich może 10 na świecie. Nawet jeśliby udźwignęli, to czy byłaby to dobra inwestycja pokryć 100 000 000 przypadków i wyłożyć na to zasoby? Z drugiej strony będą firmy które zrobią to wydajniej, i poprzez analizę krytycznych scenariuszy zminimalizują ryzyko testowaniem tego co uznają za konieczne i krytyczne. To ten drugi typ firmy ostatecznie zostanie na rynku na dłużej optymalizując koszta testowania. Stąd płynie wniosek, że testowanie całościowe skomplikowanych systemów nie jest możliwe.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Dlatego testowanie jest próbą oceny produktu przy pomocy ograniczonej liczby przypadków testowych. Także ze względu na ograniczenia zasobów czasu, pieniędzy i ludzi testowanie nie dostarcza zawsze kompletnej wiedzy o wszystkich aspektach oprogramowania. Testowanie dostarcza istotnej informacji o produkcie, ale nie gwarantuje jego pełnej niezawodności. Odpowiednio dobrany zestaw testów pozwoli zmniejszyć ryzyko proporcjonalnie do doskonałości dobru testów.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Nowe pewniki: testowanie nie gwarantuje braku błędów, znacząco zmniejsza ryzyko ich wystąpienia.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Prawo testowania: Odpowiednio dobrany zestaw testów pozwoli zmniejszyć ryzyko proporcjonalnie do doskonałości dobru testów.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">JAK DOBRAĆ TESTY POD SUT?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Czy dobór zestawu testów to wszystko co stanowi o sukcesie uzyskanych informacji o systemie? Warunków sukcesu jest kilka. Na sukces składa się udana uprzednia analiza wymagań oraz zastanego stanu sut, to podstawa do oceny kryteriów doboru typu testu. Składową sukcesu jest udana konfiguracja środowiska i dostępu na nim do danych na których się będzie przeprowadzać dobrany test. Kolejną składową sukcesu jest udane przeprowadzenie procesu. Przedostatnią jest zgromadzenie rezultatów. Ostatnią przekazanie zdobytej wiedzy o sut do interesariuszy, aby na niej oparła się decyzja o modyfikacjach sut.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            W kolejności zadań: Analiza czyli zrozumienie problemu. Dobór testów. Wykonanie czyli przeprowadzenie testów. Zgromadzenie rezultatów. Zakomunikowanie ich. Tu są kolejne podobieństwa do metody naukowej gdzie się: zadaje pytanie, analizuje, dobiera eksperymenty, wykonuje je, gromadzi rezultaty, komunikuje się wyniki. Te pojęcia rozwinę w innej części pracy jeśli zajdzie potrzeba.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">KIEDY OPROGRAMOWANIE JEST WYSOKIEJ JAKOŚCI?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Powróćmy do kwestii niskiej bądź wysokiej jakości. Kiedy uznać że oprogramowanie jest wysokiej jakości? Zacznijmy od podziału na wewnętrzną jakość przed wdrożeniem i zewnętrzną jakość po wdrożeniu wedle ISO/IEC 25010. Na pierwszym etapie wysoka jakość jest wtedy, gdy spełni wymagania interesariuszy, oraz wtedy gdy testowanie uzna poziom ryzyka wystąpienia błędów krytycznych za wystarczająco niski - wtedy oprogramowania jest kompletne i gotowe do wdrożenia na etap drugi.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Wdrożenie nie jest ostatnim etapem testowania, weryfikacja następuje również po wdrożeniu. To właśnie tym drugim, odrębnym kryterium są wymagania klientów po wdrożeniu, te zaadresujemy w dalszej części pracy.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Nowe pewniki: istnieje jakość wewnętrzna i zewnętrzna, etap wytwarzania i potem użytkowania oprogramowania. Jakość wewnętrzna to stopień spełnienia wymagań przy akceptowalnym ryzyku. Jakość zewnętrzna to spełnienie oczekiwań użytkowników.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            <strong class="text-white">Jakość wewnętrzna:</strong>
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            <strong class="text-white">Wysoka:</strong> system zachowuje się zgodnie z wymaganiami, a ryzyko błędów niewykrytych jest niskie.
+                            <strong class="text-white">Niska:</strong> system odbiega od wymagań lub nie mamy wystarczających danych, by uznać ryzyko za akceptowalne.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            <strong class="text-white">Jakość zewnętrzna:</strong>
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            <strong class="text-white">Wysoka:</strong> system spełnia oczekiwania użytkowników.
+                            <strong class="text-white">Niska:</strong> system nie spełnia oczekiwań realnych użytkowników.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Jaki jest stosunek jakości do testowania? Ta relacja jest obserwowana z dwóch punktów obserwacyjnych.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Wysoka jakość po stronie interesariuszy jest wtedy gdy - testy dostarczają dane, które pozwalają ocenić jakość, (bądź stopień ukończenia oprogramowania). Im lepiej dobrane testy → tym lepsze dane → tym trafniejsza ocena jakości. Nie da się testami ‚poprawić’ jakości - można ją tylko lepiej poznać i lepiej oszacować ryzyko. Innymi słowy niskiej jakości sut, może istnieć przy wysokiej jakoścprocesu testowego.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Wysoka jakość z perspektywy testera to: Brak wykrytych odchyleń od wymagań, Wysokie pokrycie krytycznych scenariuszy testami, Świadome i przejrzyste ograniczenia (wiemy, czego nie wiemy). Artefakty testowe wskazują niskie ryzyko błędu.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Testowanie znamy jako proces zapewniania jakości, podczas gdy precyzyjniej testowanie oznacza poznanie jakości. Testowanie nie tworzy jakości, tylko ją obserwuje. Jakość systemu jest wynikiem projektu, kodu, procesu wytwórczego. Tester nie zmienia systemu tylko zbiera dane na temat jego zachowania względem wymagań. Testowanie nie sprawia że system stanie się lepszy, może tylko ujawnić że jest zły, lub że nie wiemy czy jest dobry. Testowanie mierzy to co już powstało.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Nowe pewniki: testowanie nie ulepsza produktu, tylko poznaje czy jest zły bądź dobry. Testowanie to poznanie jakości, nie jej zapewnienie.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Zapewnienie jakości nie jest przedmiotem testowania, jest następstwem testowania. A jeszcze precyzyjniej jakość jest zapewniona wtedy gdy rezultaty testów zostały użyte do podjęcia decyzji o zmianie systemu aby jeszcze lepiej spełniał wymagania jakość wewnętrznej i zewnętrznej. Testowanie nie jest zapewnianiem jakości, ale działa w służbie zapewniania jakości informując decyzję. Proces zapewniania jakości jest proaktywny, prewentywny. A testowanie jest reaktywne, jest inspekcją. Koniec części pierwszej.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">To co ustaliliśmy streszczone:</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4]">
+                            Filozofia testowania stawia pytania o najdalsze przyczyny w dziedzinie testowania, takie jak "co to jest błąd?" czy "jaki jest cel testowania?". Oprogramowanie ma pomagać ludziom, a celem testowania jest poznanie jakości sut. Oprogramowanie to zestaw programów, które niestety często zawierają błędy z powodu złożoności, co uzasadnia potrzebę zatrudniania testerów do ich wykrywania. Błąd to odstępstwo oprogramowania od wymagań jego zachowania, co implikuje dążenie do oprogramowania wysokiej jakości, a jego istnienie prowadzi do konieczności eliminacji błędów i podejmowania decyzji o poprawie systemu. Test musi asercjonować, dając wynik prawda, fałsz lub nieznany, a jego typ i granice zależą od funkcji i dojrzałości oprogramowania. Wyróżnia się testy E2E (pełna logika systemu), integracyjne (współdziałanie komponentów) i jednostkowe/komponentowe (izolowane funkcje), każdy z własnymi granicami. Pełne pokrycie testami jest niemożliwe w złożonych systemach ze względu na ogromną liczbę permutacji i ograniczenia zasobów, dlatego testowanie dostarcza istotnej, ale niekompletnej informacji. Dobór testów zależy od analizy wymagań i stanu systemu, a sukces wymaga udanej konfiguracji środowiska, przeprowadzenia testów, zgromadzenia rezultatów i zakomunikowania ich interesariuszom. Jakość wewnętrzna to spełnienie wymagań przy niskim ryzyku błędów, a jakość zewnętrzna to spełnienie oczekiwań użytkowników po wdrożeniu, przy czym testowanie poznaje jakość, nie tworzy jej.
+                        </p>
+                    </section>
+                </div>
+
+                <!-- English Content (hidden by default) -->
+                <div id="en-content" class="hidden">
+                    <section class="mb-12">
+                        <h2 class="text-3xl font-bold text-[#c8d4e1] mb-4">INTRODUCTION</h2>
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">WHAT IS PHILOSOPHY?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Every science must rest on a certain axiom, a self-evident truth that cannot be denied, a foundation from which all further truths are consistently derived. For physics, it is the assumption that the universe is governed by laws that we can discover and understand. For philosophy, it is self-awareness—the undeniable fact that one exists.
+                            What distinguishes philosophy from other sciences? It asks questions about the ultimate causes, while the specific sciences investigate proximate ones. In practice, this looks as follows:
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4 pl-4 border-l-2 border-[#5d677d]">
+                            “Physicists debate the nature of bodies, their properties, and forces—but what is a body? What is force? Where do matter and energy come from? Physiologists study shapes, processes, and conditions of life—but what is life? Where does it come from? Mathematicians pursue endlessly the relations of numbers and forms—but what is quantity? What is space?”
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            A tester asks: What is the cause of this bug?
+                            The philosophy of testing asks: What is a bug?
+                            A tester asks: What is the purpose of this functionality?
+                            The philosophy of testing asks: What is the purpose of testing itself?
+                            A tester asks: Which type of test should I use?
+                            Philosophy asks: What is a test?
+                            Philosophy always seeks the deeper, sometimes ultimate, cause of a phenomenon. It is therefore the discipline that addresses questions of first principles. With this admittedly brief introduction, I now begin my work on the philosophy of testing.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">THE PHILOSOPHY OF TESTING: PART ONE</h3>
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">WHY DO WE NEED TESTERS?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            What is the subject of testing in our industry? It is software. And what is the purpose of software? Quite simply: to help people. This is the essential requirement for any software. Code never helps machines for their own sake; it always assists humans in achieving some goal, step by step.
+                            This “help” need not be noble—it could even help someone commit theft. But it remains, fundamentally, assistance to a human being in pursuing an objective.
+                            If helping people is the goal of software, then the goal of testing is to obtain the most reliable possible information about the SUT (System Under Test). I stress “most reliable possible” because testing does not guarantee the absence of bugs—it only reduces the risk of their occurrence.
+                            By informing us about the actual state of the SUT, testing either confirms or refutes whether the intended benefit of the software will be realized.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">WHAT IS SOFTWARE?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            In its broadest sense, software is a set of programs that issue commands to a computer. We may divide it into two categories:
+                            <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] my-2">
+                                <li>
+                                    <strong class="text-white">Operating systems</strong> – which manage computer resources and provide services for applications.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Application software</strong> – which performs specific tasks for the user.
+                                </li>
+                            </ul>
+                            Whether system-level or application-level, software is always created with a defined expectation of behavior—a function it must fulfill as a tool for its user.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Unfortunately, software does not always behave as intended. This is mainly due to the complexity of modern systems. This complexity exposes the software owner to the risk that the software will fail to achieve its purpose.
+                            To minimize that risk, software undergoes testing before release. Testers compare actual behavior against expected behavior and report deviations. These deviations are called bugs.
+                            Thus, the need to employ testers rests on a certainty: software contains bugs.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            From this we derive the first axiom of testing: software contains bugs, and the purpose of testing is to detect them, in order to provide information about whether the system meets its requirements at its current stage of development.
+                            Testing therefore exists to observe and report the relation between expected and actual behavior. This information, in turn, becomes the basis for system modifications.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            The tester thus bears a responsibility comparable to that of the product owner. The owner defines the direction of product development; the tester influences that direction indirectly, through information. Based on test results, developers modify code so that it better fulfills requirements.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">WHAT IS A BUG?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            The next step requires us to define what a bug is. This is an ontological question: what makes something count as a bug?
+                            A bug is a deviation of software behavior from its requirements. The very notion of a bug presupposes that software has defined expected behavior against which it can be measured. Without such requirements, “bug” is meaningless.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Thus, the existence of bugs implies a striving toward high-quality software—software that works correctly, even perfectly. I will return to the definition of quality later in this work.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            From this, a few certainties emerge:
+                            <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] my-2">
+                                <li>
+                                    <strong class="text-white">Testing exists because software contains bugs.</strong>
+                                </li>
+                                <li>
+                                    <strong class="text-white">Software is a mechanism designed to meet requirements.</strong>
+                                </li>
+                                <li>
+                                    <strong class="text-white">A bug is a deviation from those requirements.</strong>
+                                </li>
+                                <li>
+                                    <strong class="text-white">Meeting requirements constitutes high-quality software.</strong>
+                                </li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">WHAT ARE THE CONSEQUENCES OF BUGS?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            What happens when software contains bugs? The immediate consequence is that it fails to meet expectations and must be corrected.
+                            Another consequence is that the very existence of bugs leads to decisions about improving the system, and then re-testing to verify the effectiveness of fixes.
+                            How do we discover bugs in the first place? By executing the software and running planned tests. It is therefore the test itself that reveals deviations.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">WHAT IS A TEST?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            What must a test contain in order to truly be a test? It must make an assertion.
+                            Every test must yield one of three outcomes: <strong class="text-white">true</strong>, <strong class="text-white">false</strong>, or <strong class="text-white">unknown</strong>. Without such outcomes, the behavior of the software cannot be validated, and the test cannot provide data necessary to evaluate the SUT’s quality.
+                            Is there a universal test that could detect all bugs with a single assertion? Unfortunately, no. There is no single test for everything. In practice, we use multiple levels of testing, and their selection depends on the software’s maturity.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Types of tests vary depending on both the software’s function and its stage of development. Each test type has its scope and its limits—just as a data type in programming constrains input (e.g. <strong class="text-white">int</strong> excludes strings).
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Thus: <strong class="text-white">the type of test limits what can be known about the SUT.</strong>
+                            Designing a full test suite requires combining different test types—unit, integration, end-to-end—so that together they provide the broadest possible knowledge of the system.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">MAIN TEST LEVELS</h3>
+                        <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] mb-4">
+                            <li>
+                                <strong class="text-white">End-to-End (E2E)</strong> – assumes all systems are running; validates the complete logic of the system based only on input and output.
+                            </li>
+                            <li>
+                                <strong class="text-white">Integration tests</strong> – verify the behavior of two or more components working together.
+                            </li>
+                            <li>
+                                <strong class="text-white">Unit/component tests</strong> – isolate a single component and verify its functions independently.
+                            </li>
+                        </ul>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Each type has inherent limits. No single test type is sufficient; each contributes a piece of the puzzle.
+                            From this we conclude:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] mb-4">
+                            <li>
+                                <strong class="text-white">It is the execution of tests that informs us of the existence of bugs.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Tests have inherent boundaries and assumptions.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Tests must assert something (true/false/unknown).</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Tests produce data that allow us to understand quality.</strong>
+                            </li>
+                        </ul>
+                        <p class="text-base leading-relaxed text-[#a0a8b4]">
+                            Software that does not work as intended is ontologically incomplete, requiring intervention—testing and correction. All bugs are signs of imperfection in the realization of the software’s intended being.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">CAN ALL USE CASES BE COVERED?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Can testing cover every possible use case? If so, we would achieve perfect knowledge of the system. But in practice, this is impossible. Consider an application for purchasing fuel, available in 18 countries, both on web and mobile. Each user has a different phone, operating system, screen, network conditions, and level of technical skill. The number of possible test case permutations would reach into the billions. Only a handful of companies on earth could afford such exhaustive testing—and even then, would it be a good investment?
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            The market ultimately rewards the second type of company: those that optimize testing by focusing on critical scenarios that minimize risk at lower cost. Therefore: complete test coverage is impossible in complex systems.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Testing is always an attempt to assess the product through a limited set of cases, constrained by time, money, and human resources. Testing provides valuable but incomplete knowledge.
+                            Thus we arrive at a law of testing:
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            <strong class="text-white">The right set of tests reduces risk in proportion to the quality of the chosen tests.</strong>
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">HOW TO SELECT TESTS FOR THE SUT?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Success in testing is not only about test selection. Other conditions must also be met:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] mb-4">
+                            <li>
+                                <strong class="text-white">Requirement analysis</strong> – understanding the problem.
+                            </li>
+                            <li>
+                                <strong class="text-white">Test selection</strong> – choosing the right types.
+                            </li>
+                            <li>
+                                <strong class="text-white">Execution</strong> – running the tests.
+                            </li>
+                            <li>
+                                <strong class="text-white">Result collection</strong> – gathering outcomes.
+                            </li>
+                            <li>
+                                <strong class="text-white">Communication</strong> – delivering findings to stakeholders.
+                            </li>
+                        </ul>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            These stages parallel the scientific method: ask a question, analyze, design experiments, execute, collect results, communicate.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">WHEN IS SOFTWARE HIGH QUALITY?</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Let us return to the question of quality. According to ISO/IEC 25010, we distinguish between:
+                            <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] my-2">
+                                <li>
+                                    <strong class="text-white">Internal quality</strong> – before release.
+                                </li>
+                                <li>
+                                    <strong class="text-white">External quality</strong> – after release.
+                                </li>
+                            </ul>
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Internal quality is high when the system meets stakeholder requirements and testing shows the risk of critical bugs to be sufficiently low. At that point, the software is complete and ready for release.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            External quality is assessed after deployment, based on whether the software meets user expectations.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            <strong class="text-white">Internal Quality:</strong>
+                            <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] my-2">
+                                <li>
+                                    <strong class="text-white">High</strong> – system behaves as required; risk of undetected bugs is low.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Low</strong> – system deviates from requirements, or risk is unknown/unacceptable.
+                                </li>
+                            </ul>
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            <strong class="text-white">External Quality:</strong>
+                            <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] my-2">
+                                <li>
+                                    <strong class="text-white">High</strong> – system meets user expectations.
+                                </li>
+                                <li>
+                                    <strong class="text-white">Low</strong> – system fails to meet user expectations.
+                                </li>
+                            </ul>
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            The relation of testing to quality may be seen from two perspectives:
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            <strong class="text-white">From the stakeholder’s view:</strong> high quality is when tests provide data sufficient to assess quality and risk. Testing does not improve quality—it only reveals it.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            <strong class="text-white">From the tester’s view:</strong> high quality means no deviations found, critical scenarios covered, and clear awareness of known unknowns.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            In short:
+                            <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] my-2">
+                                <li>
+                                    <strong class="text-white">Testing does not create quality. Testing discovers it.</strong>
+                                </li>
+                                <li>
+                                    <strong class="text-white">Quality is the product of design, code, and development processes.</strong>
+                                </li>
+                            </ul>
+                            The tester does not alter the system but collects data about its behavior against requirements.
+                        </p>
+                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
+                            Therefore, testing belongs not to the process of ensuring quality, but to the process of knowing quality.
+                        </p>
+                    </section>
+                    <section class="mb-12">
+                        <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">SUMMARY OF PART ONE</h3>
+                        <p class="text-base leading-relaxed text-[#a0a8b4]">
+                            The philosophy of testing asks questions of ultimate causes in the testing domain: What is a bug? What is the purpose of testing?
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] mb-4">
+                            <li>
+                                <strong class="text-white">Software exists to help people.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Testing exists to provide reliable information about software, confirming whether the intended benefit will be realized.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Software often contains bugs due to complexity, hence the need for testers.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">A bug is a deviation from requirements.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">High-quality software is that which meets requirements.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Tests must make assertions (true/false/unknown).</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Each type of test has limits.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Complete coverage is impossible; testing reduces risk, it does not eliminate it.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Internal quality = meeting requirements at acceptable risk.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">External quality = meeting user expectations.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Testing does not improve quality; it only reveals whether the system is good or bad.</strong>
+                            </li>
+                            <li>
+                                <strong class="text-white">Thus, testing is not quality assurance, but knowledge of quality. Assurance comes only when test results are used to make decisions that improve the system.</strong>
+                            </li>
+                        </ul>
+                        <p class="text-base leading-relaxed text-[#a0a8b4]">
+                            End of Part One.
+                        </p>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Footer Section -->
+            <footer class="text-center mt-12 text-[#9ca3af] text-sm">
+                <p>&copy; 2024 Filozofia Testowania. Wszelkie prawa zastrzeżone.</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script>
+        const plBtn = document.getElementById('pl-btn');
+        const enBtn = document.getElementById('en-btn');
+        const plContent = document.getElementById('pl-content');
+        const enContent = document.getElementById('en-content');
+
+        // Function to switch language
+        function setLanguage(lang) {
+            if (lang === 'pl') {
+                plContent.classList.remove('hidden');
+                enContent.classList.add('hidden');
+                plBtn.classList.add('bg-[#5d677d]');
+                plBtn.classList.remove('bg-[#3f4454]');
+                enBtn.classList.add('bg-[#3f4454]');
+                enBtn.classList.remove('bg-[#5d677d]');
+            } else {
+                plContent.classList.add('hidden');
+                enContent.classList.remove('hidden');
+                enBtn.classList.add('bg-[#5d677d]');
+                enBtn.classList.remove('bg-[#3f4454]');
+                plBtn.classList.add('bg-[#3f4454]');
+                plBtn.classList.remove('bg-[#5d677d]');
+            }
+        }
+
+        // Event listeners for buttons
+        plBtn.addEventListener('click', () => setLanguage('pl'));
+        enBtn.addEventListener('click', () => setLanguage('en'));
+
+        // Set initial language
+        setLanguage('pl');
+    </script>
+
+</body>
+</html>
