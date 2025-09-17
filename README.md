@@ -1,0 +1,2 @@
+# filoqa
+philosophy of testing
