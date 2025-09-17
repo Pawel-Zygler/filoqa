@@ -13,20 +13,47 @@
             font-family: 'Inter', sans-serif;
             background-color: #0b0d19;
             color: #d1d5db;
+            position: relative;
+            overflow-x: hidden;
         }
         .container {
             max-width: 1000px;
         }
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #0b0d19;
+            background-image: radial-gradient(circle, rgba(93, 103, 125, 0.1) 1px, transparent 1px),
+                              radial-gradient(circle, rgba(63, 68, 84, 0.15) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            animation: move-bg 120s linear infinite;
+        }
+
+        @keyframes move-bg {
+            0% {
+                background-position: 0 0, 10px 10px;
+            }
+            100% {
+                background-position: 1000px 1000px, 1010px 1010px;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <div class="animated-background"></div>
 
     <div class="min-h-screen flex flex-col items-center justify-center p-4">
         <div class="container mx-auto p-8 bg-[#1a1c2a] rounded-xl shadow-2xl">
             <!-- Header Section -->
             <header class="text-center mb-12">
                 <h1 class="text-5xl md:text-6xl font-extrabold text-[#c8d4e1] tracking-tight mb-4">Filozofia Testowania</h1>
-                <p class="text-lg text-[#9ca3af] max-w-2xl mx-auto">Próba naukowego podejścia do umiejętności testowania oprogramowania.</p>
+                <p class="text-lg text-[#9ca3af] max-w-2xl mx-auto">Próba naukowego podejścia do nauki o testowaniu oprogramowania.</p>
             </header>
 
             <!-- Language Switcher -->
@@ -43,7 +70,7 @@
                         <h2 class="text-3xl font-bold text-[#c8d4e1] mb-4">WSTĘP</h2>
                         <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">CZYM JEST FILOZOFIA?</h3>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            Każda nauka o czymkolwiek musi posiadać swój pewnik, fundament, aksjomat któremu nikt nie zaprzecza i jest ewidentnie prawdą. Z niego konsekwentnie wyprowadzane są dalsze prawdy. Dla fizyki jest to założenie że wszechświat rządzi się prawami, które możemy odkryć i poznać. Dla filozofii jest to samowiedza, czyli to że nikt nie jest w stanie zaprzeczyć że istnieje. Czym zajmuje się filozofia w odróżnieniu do innych nauk? Zadaje pytania o najdalsze przyczyny podczas, gdy nauki szczegółowe o przyczyny bliższe. W praktyce wygląda to tak:
+                            Każda nauka o czymkolwiek musi posiadać swój pewnik, fundament, aksjomat<sup id="fnref:1"><a href="#fn:1">1</a></sup> któremu nikt nie zaprzecza i jest ewidentnie prawdą. Z niego konsekwentnie wyprowadzane są dalsze prawdy. Dla fizyki jest to założenie że wszechświat rządzi się prawami, które możemy odkryć i poznać. Dla filozofii jest to samowiedza, czyli to że nikt nie jest w stanie zaprzeczyć że istnieje. Czym zajmuje się filozofia w odróżnieniu do innych nauk? Zadaje pytania o najdalsze przyczyny podczas, gdy nauki szczegółowe o przyczyny bliższe. W praktyce wygląda to tak:
                         </p>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4 pl-4 border-l-2 border-[#5d677d]">
                             "Fizycy rozprawiają o różnych ciałach, o ich przymiotach i siłach — ale co to jest ciało? Co siła? Skąd pochodzą materia i siła? Fizjologowie badają różne kształty, objawy i warunki życia — ale co jest życie? Skąd się ono bierze? Matematycy ści­gają w nieskończoność stosunki liczb i kształtów — ale co to jest ilość? Czym jest przestrzeń?”
@@ -56,7 +83,7 @@
                         <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">FILOZOFIA TESTOWANIA: CZĘŚĆ PIERWSZA</h3>
                         <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">DLACZEGO ISTNIEJE POTRZEBA ZATRUDNIANIA TESTERÓW?</h3>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            Co jest przedmiotem testowania w naszej branży? Jest nim oprogramowanie. Jaki jest cel istnienia oprogramowania? Oprogramowanie “ma pomagać ludziom” To jest wymaganie stawiane oprogramowaniu. Zawsze tak jest, napisany kod nigdy nie pomaga np. komputerom czy urządzeniom, zawsze pomaga ono człowiekowi w rozwiązywaniu problemów krok po kroku. Oprogramowanie nie musi pomagać w szczytnych celach, może pomagać ludzi okraść. Wciąż jest to pomoc komuś w realizacji celu. Jeśli pomaganie ludziom to cel oprogramowania, to celem testowania jest uzyskanie jak najdoskonalszej informacji o SUT (system under test).. Testowanie, informując o zastanym stanie SUT, poznaje jego jakość.
+                            Co jest przedmiotem testowania w naszej branży? Jest nim oprogramowanie. Jaki jest cel istnienia oprogramowania? Oprogramowanie “ma pomagać ludziom” To jest wymaganie stawiane oprogramowaniu. Zawsze tak jest, napisany kod nigdy nie pomaga np. komputerom czy urządzeniom, zawsze pomaga ono człowiekowi w rozwiązywaniu problemów krok po kroku. Oprogramowanie nie musi pomagać w szczytnych celach, może pomagać ludzi okraść. Wciąż jest to pomoc komuś w realizacji celu. Jeśli pomaganie ludziom to cel oprogramowania, to celem testowania jest uzyskanie jak najdoskonalszej informacji o SUT<sup id="fnref:2"><a href="#fn:2">2</a></sup> (system under test).. Testowanie, informując o zastanym stanie SUT, poznaje jego jakość.
                         </p>
                     </section>
                     <section class="mb-12">
@@ -153,13 +180,13 @@
                             Czy dobór zestawu testów to wszystko co stanowi o sukcesie uzyskanych informacji o systemie? Warunków sukcesu jest kilka. Na sukces składa się udana uprzednia analiza wymagań oraz zastanego stanu sut, to podstawa do oceny kryteriów doboru typu testu. Składową sukcesu jest udana konfiguracja środowiska i dostępu na nim do danych na których się będzie przeprowadzać dobrany test. Kolejną składową sukcesu jest udane przeprowadzenie procesu. Przedostatnią jest zgromadzenie rezultatów. Ostatnią przekazanie zdobytej wiedzy o sut do interesariuszy, aby na niej oparła się decyzja o modyfikacjach sut.
                         </p>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            W kolejności zadań: Analiza czyli zrozumienie problemu. Dobór testów. Wykonanie czyli przeprowadzenie testów. Zgromadzenie rezultatów. Zakomunikowanie ich. Tu są kolejne podobieństwa do metody naukowej gdzie się: zadaje pytanie, analizuje, dobiera eksperymenty, wykonuje je, gromadzi rezultaty, komunikuje się wyniki. Te pojęcia rozwinę w innej części pracy jeśli zajdzie potrzeba.
+                            W kolejności zadań: Analiza czyli zrozumienie problemu. Dobór testów. Wykonanie czyli przeprowadzenie testów. Zgromadzenie rezultatów. Zakomunikowanie ich. Tu są kolejne podobieństwa do metody naukowej gdzie się: zadaje pytanie, analizuje, dobiera eksperymenty, wykonuje je, gromadzi rezultaty, komunikuje się wyniki.
                         </p>
                     </section>
                     <section class="mb-12">
                         <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">KIEDY OPROGRAMOWANIE JEST WYSOKIEJ JAKOŚCI?</h3>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            Powróćmy do kwestii niskiej bądź wysokiej jakości. Kiedy uznać że oprogramowanie jest wysokiej jakości? Zacznijmy od podziału na wewnętrzną jakość przed wdrożeniem i zewnętrzną jakość po wdrożeniu wedle ISO/IEC 25010. Na pierwszym etapie wysoka jakość jest wtedy, gdy spełni wymagania interesariuszy, oraz wtedy gdy testowanie uzna poziom ryzyka wystąpienia błędów krytycznych za wystarczająco niski - wtedy oprogramowania jest kompletne i gotowe do wdrożenia na etap drugi.
+                            Powróćmy do kwestii niskiej bądź wysokiej jakości. Kiedy uznać że oprogramowanie jest wysokiej jakości? Zacznijmy od podziału na wewnętrzną jakość przed wdrożeniem i zewnętrzną jakość po wdrożeniu wedle ISO/IEC 25010<sup id="fnref:3"><a href="#fn:3">3</a></sup>. Na pierwszym etapie wysoka jakość jest wtedy, gdy spełni wymagania interesariuszy, oraz wtedy gdy testowanie uzna poziom ryzyka wystąpienia błędów krytycznych za wystarczająco niski - wtedy oprogramowania jest kompletne i gotowe do wdrożenia na etap drugi.
                         </p>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
                             Wdrożenie nie jest ostatnim etapem testowania, weryfikacja następuje również po wdrożeniu. To właśnie tym drugim, odrębnym kryterium są wymagania klientów po wdrożeniu, te zaadresujemy w dalszej części pracy.
@@ -167,20 +194,32 @@
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
                             Nowe pewniki: istnieje jakość wewnętrzna i zewnętrzna, etap wytwarzania i potem użytkowania oprogramowania. Jakość wewnętrzna to stopień spełnienia wymagań przy akceptowalnym ryzyku. Jakość zewnętrzna to spełnienie oczekiwań użytkowników.
                         </p>
-                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            <strong class="text-white">Jakość wewnętrzna:</strong>
-                        </p>
-                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            <strong class="text-white">Wysoka:</strong> system zachowuje się zgodnie z wymaganiami, a ryzyko błędów niewykrytych jest niskie.
-                            <strong class="text-white">Niska:</strong> system odbiega od wymagań lub nie mamy wystarczających danych, by uznać ryzyko za akceptowalne.
-                        </p>
-                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            <strong class="text-white">Jakość zewnętrzna:</strong>
-                        </p>
-                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            <strong class="text-white">Wysoka:</strong> system spełnia oczekiwania użytkowników.
-                            <strong class="text-white">Niska:</strong> system nie spełnia oczekiwań realnych użytkowników.
-                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] mb-4">
+                            <li>
+                                <strong class="text-white">Jakość wewnętrzna:</strong>
+                                <ul class="list-disc list-inside ml-4 space-y-2 text-base text-[#a0a8b4] my-2">
+                                    <li>
+                                        <strong class="text-white">Wysoka:</strong> system zachowuje się zgodnie z wymaganiami, a ryzyko błędów niewykrytych jest niskie.
+                                    </li>
+                                    <li>
+                                        <strong class="text-white">Niska:</strong> system odbiega od wymagań lub nie mamy wystarczających danych, by uznać ryzyko za akceptowalne.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] mb-4">
+                            <li>
+                                <strong class="text-white">Jakość zewnętrzna:</strong>
+                                <ul class="list-disc list-inside ml-4 space-y-2 text-base text-[#a0a8b4] my-2">
+                                    <li>
+                                        <strong class="text-white">Wysoka:</strong> system spełnia oczekiwania użytkowników.
+                                    </li>
+                                    <li>
+                                        <strong class="text-white">Niska:</strong> system nie spełnia oczekiwań realnych użytkowników.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
                             Jaki jest stosunek jakości do testowania? Ta relacja jest obserwowana z dwóch punktów obserwacyjnych.
                         </p>
@@ -206,6 +245,13 @@
                             Filozofia testowania stawia pytania o najdalsze przyczyny w dziedzinie testowania, takie jak "co to jest błąd?" czy "jaki jest cel testowania?". Oprogramowanie ma pomagać ludziom, a celem testowania jest poznanie jakości sut. Oprogramowanie to zestaw programów, które niestety często zawierają błędy z powodu złożoności, co uzasadnia potrzebę zatrudniania testerów do ich wykrywania. Błąd to odstępstwo oprogramowania od wymagań jego zachowania, co implikuje dążenie do oprogramowania wysokiej jakości, a jego istnienie prowadzi do konieczności eliminacji błędów i podejmowania decyzji o poprawie systemu. Test musi asercjonować, dając wynik prawda, fałsz lub nieznany, a jego typ i granice zależą od funkcji i dojrzałości oprogramowania. Wyróżnia się testy E2E (pełna logika systemu), integracyjne (współdziałanie komponentów) i jednostkowe/komponentowe (izolowane funkcje), każdy z własnymi granicami. Pełne pokrycie testami jest niemożliwe w złożonych systemach ze względu na ogromną liczbę permutacji i ograniczenia zasobów, dlatego testowanie dostarcza istotnej, ale niekompletnej informacji. Dobór testów zależy od analizy wymagań i stanu systemu, a sukces wymaga udanej konfiguracji środowiska, przeprowadzenia testów, zgromadzenia rezultatów i zakomunikowania ich interesariuszom. Jakość wewnętrzna to spełnienie wymagań przy niskim ryzyku błędów, a jakość zewnętrzna to spełnienie oczekiwań użytkowników po wdrożeniu, przy czym testowanie poznaje jakość, nie tworzy jej.
                         </p>
                     </section>
+                    <hr class="border-t border-[#3f4454] my-8" />
+                    <section>
+                        <h3 class="text-xl font-bold text-[#c8d4e1] mb-4">Przypisy</h3>
+                        <p id="fn:1" class="text-xs text-[#a0a8b4] mb-2">1. <strong>Aksjomat:</strong> założenie, którego nie trzeba dowodzić, aby na nim zbudować dalszą teorię. <a href="#fnref:1">↑</a></p>
+                        <p id="fn:2" class="text-xs text-[#a0a8b4] mb-2">2. <strong>SUT (System Under Test):</strong> system, który jest poddawany testowaniu w celu oceny jego funkcjonalności i jakości. <a href="#fnref:2">↑</a></p>
+                        <p id="fn:3" class="text-xs text-[#a0a8b4] mb-2">3. <strong>ISO/IEC 25010:</strong> międzynarodowy standard jakości oprogramowania, który definiuje m.in. model jakości produktu oprogramowania, dzieląc ją na cechy wewnętrzne i zewnętrzne. <a href="#fnref:3">↑</a></p>
+                    </section>
                 </div>
 
                 <!-- English Content (hidden by default) -->
@@ -214,7 +260,7 @@
                         <h2 class="text-3xl font-bold text-[#c8d4e1] mb-4">INTRODUCTION</h2>
                         <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">WHAT IS PHILOSOPHY?</h3>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            Every science must rest on a certain axiom, a self-evident truth that cannot be denied, a foundation from which all further truths are consistently derived. For physics, it is the assumption that the universe is governed by laws that we can discover and understand. For philosophy, it is self-awareness—the undeniable fact that one exists.
+                            Every science must rest on a certain axiom<sup id="fnref:4"><a href="#fn:4">1</a></sup>, a self-evident truth that cannot be denied, a foundation from which all further truths are consistently derived. For physics, it is the assumption that the universe is governed by laws that we can discover and understand. For philosophy, it is self-awareness—the undeniable fact that one exists.
                             What distinguishes philosophy from other sciences? It asks questions about the ultimate causes, while the specific sciences investigate proximate ones. In practice, this looks as follows:
                         </p>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4 pl-4 border-l-2 border-[#5d677d]">
@@ -236,7 +282,7 @@
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
                             What is the subject of testing in our industry? It is software. And what is the purpose of software? Quite simply: to help people. This is the essential requirement for any software. Code never helps machines for their own sake; it always assists humans in achieving some goal, step by step.
                             This “help” need not be noble—it could even help someone commit theft. But it remains, fundamentally, assistance to a human being in pursuing an objective.
-                            If helping people is the goal of software, then the goal of testing is to obtain the most reliable possible information about the SUT (System Under Test). I stress “most reliable possible” because testing does not guarantee the absence of bugs—it only reduces the risk of their occurrence.
+                            If helping people is the goal of software, then the goal of testing is to obtain the most reliable possible information about the SUT<sup id="fnref:5"><a href="#fn:5">2</a></sup> (System Under Test). I stress “most reliable possible” because testing does not guarantee the absence of bugs—it only reduces the risk of their occurrence.
                             By informing us about the actual state of the SUT, testing either confirms or refutes whether the intended benefit of the software will be realized.
                         </p>
                     </section>
@@ -397,7 +443,7 @@
                     <section class="mb-12">
                         <h3 class="text-2xl font-bold text-[#c8d4e1] mb-4">WHEN IS SOFTWARE HIGH QUALITY?</h3>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            Let us return to the question of quality. According to ISO/IEC 25010, we distinguish between:
+                            Let us return to the question of quality. According to ISO/IEC 25010<sup id="fnref:6"><a href="#fn:6">3</a></sup>, we distinguish between:
                             <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] my-2">
                                 <li>
                                     <strong class="text-white">Internal quality</strong> – before release.
@@ -413,28 +459,32 @@
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
                             External quality is assessed after deployment, based on whether the software meets user expectations.
                         </p>
-                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            <strong class="text-white">Internal Quality:</strong>
-                            <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] my-2">
-                                <li>
-                                    <strong class="text-white">High</strong> – system behaves as required; risk of undetected bugs is low.
-                                </li>
-                                <li>
-                                    <strong class="text-white">Low</strong> – system deviates from requirements, or risk is unknown/unacceptable.
-                                </li>
-                            </ul>
-                        </p>
-                        <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
-                            <strong class="text-white">External Quality:</strong>
-                            <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] my-2">
-                                <li>
-                                    <strong class="text-white">High</strong> – system meets user expectations.
-                                </li>
-                                <li>
-                                    <strong class="text-white">Low</strong> – system fails to meet user expectations.
-                                </li>
-                            </ul>
-                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] mb-4">
+                            <li>
+                                <strong class="text-white">Internal Quality:</strong>
+                                <ul class="list-disc list-inside ml-4 space-y-2 text-base text-[#a0a8b4] my-2">
+                                    <li>
+                                        <strong class="text-white">High</strong> – system behaves as required; risk of undetected bugs is low.
+                                    </li>
+                                    <li>
+                                        <strong class="text-white">Low</strong> – system deviates from requirements, or risk is unknown/unacceptable.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="list-disc list-inside space-y-2 text-base text-[#a0a8b4] mb-4">
+                            <li>
+                                <strong class="text-white">External Quality:</strong>
+                                <ul class="list-disc list-inside ml-4 space-y-2 text-base text-[#a0a8b4] my-2">
+                                    <li>
+                                        <strong class="text-white">High</strong> – system meets user expectations.
+                                    </li>
+                                    <li>
+                                        <strong class="text-white">Low</strong> – system fails to meet user expectations.
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                         <p class="text-base leading-relaxed text-[#a0a8b4] mb-4">
                             The relation of testing to quality may be seen from two perspectives:
                         </p>
@@ -507,12 +557,19 @@
                             End of Part One.
                         </p>
                     </section>
+                    <hr class="border-t border-[#3f4454] my-8" />
+                    <section>
+                        <h3 class="text-xl font-bold text-[#c8d4e1] mb-4">Footnotes</h3>
+                        <p id="fn:4" class="text-xs text-[#a0a8b4] mb-2">1. <strong>Axiom:</strong> a statement or proposition that is regarded as being established, accepted, or self-evidently true, which is then used as a basis for further theory. <a href="#fnref:4">↑</a></p>
+                        <p id="fn:5" class="text-xs text-[#a0a8b4] mb-2">2. <strong>SUT (System Under Test):</strong> a system that is being tested for its functionality and quality. <a href="#fnref:5">↑</a></p>
+                        <p id="fn:6" class="text-xs text-[#a0a8b4] mb-2">3. <strong>ISO/IEC 25010:</strong> an international standard for software quality, which defines, among other things, the software product quality model, dividing it into internal and external characteristics. <a href="#fnref:6">↑</a></p>
+                    </section>
                 </div>
             </div>
 
             <!-- Footer Section -->
             <footer class="text-center mt-12 text-[#9ca3af] text-sm">
-                <p>&copy; 2024 Filozofia Testowania. Wszelkie prawa zastrzeżone.</p>
+                <p>&copy; 2025 Filozofia Testowania. Wszelkie prawa zastrzeżone.</p>
             </footer>
 
         </div>
