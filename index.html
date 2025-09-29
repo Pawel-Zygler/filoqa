@@ -270,7 +270,7 @@
                             “Physicists speak about bodies, their properties and forces — but what is a body? What is force? Where do matter and force come from? Physiologists study the forms, manifestations, and conditions of life — but what is life? Where does it come from? Mathematicians pursue to infinity the relations of numbers and shapes — but what is quantity? What is space?”<sup id="fnref:8"><a href="#fn:8">4</sup></a>
                         </p>
                         <p class="text-sm leading-relaxed text-[#a0a8b4] mb-4">
-                            Testers ask: what is the cause of this defect? The philosophy of testing asks: what is a defect? A tester asks: what is the purpose of this functionality? The philosophy of testing asks: what is the purpose of testing? A tester asks: which kind of test should I use? The philosophy of testing asks: what is a test?
+                            Testers ask: what is the cause of this bug? The philosophy of testing asks: what is a bug? A tester asks: what is the purpose of this functionality? The philosophy of testing asks: what is the purpose of testing? A tester asks: which kind of test should I use? The philosophy of testing asks: what is a test?
                             Philosophy seeks the more distant or the most distant cause of a phenomenon. Therefore, philosophy is the discipline that answers questions about ultimate causes. With this admittedly brief introduction, I would like to begin the work on a philosophy of testing.
                         </p>
                     </section>
@@ -279,7 +279,7 @@
                         <h3 class="text-xl font-bold text-[#c8d4e1] mb-4">WHY IS THERE A NEED TO HIRE TESTERS?</h3>
                         <p class="text-sm leading-relaxed text-[#a0a8b4] mb-4">
                             What is the subject of testing in our industry? It is software. What is the purpose of software? Software “is meant to help people”. That is the fundamental requirement. Software never helps computers or devices themselves; it always assists people solve problems step by step. Software does not need to serve noble purposes, it can just as well help someone steal. Regardless, it is still a tool that assists a person in achieving a goal.
-                            If helping people is the purpose of software, then the purpose of testing is to obtain the most reliable information possible (the qualification is deliberate, since testing does not guarantee the absence of defects but only reduces the risk of their occurrence) about the SUT<sup id="fnref:6"><a href="#fn:6">2</sup></a>. By reporting on the actual state of the SUT, testing gets to know the state of SUT. Testing, by revealing the system’s state, allows us to learn whether it is good or bad.
+                            If helping people is the purpose of software, then the purpose of testing is to obtain the most reliable information possible (the qualification is deliberate, since testing does not guarantee the absence of bugs but only reduces the risk of their occurrence) about the SUT<sup id="fnref:6"><a href="#fn:6">2</sup></a>. By reporting on the actual state of the SUT, testing gets to know the state of SUT. Testing, by revealing the system’s state, allows us to learn whether it is good or bad.
                         </p>
                     </section>
                     <section class="mb-12">
@@ -305,7 +305,7 @@
                     <section class="mb-12">
                         <h3 class="text-xl font-bold text-[#c8d4e1] mb-4">WHAT ARE THE CONSEQUENCES OF BUGS?</h3>
                         <p class="text-sm leading-relaxed text-[#a0a8b4] mb-4">
-                            What are the consequences of defects in software? When they exist, software does not meet expectations; hence, bugs must be eliminated for it to function properly. Another consequence is that bugs trigger the need to fix the system and subsequently verify the effectiveness of fixes.
+                            What are the consequences of bugs in software? When they exist, software does not meet expectations; hence, bugs must be eliminated for it to function properly. Another consequence is that bugs trigger the need to fix the system and subsequently verify the effectiveness of fixes.
                             How, then, do we learn about bugs in software? By executing the software and running planned tests. Detecting deviations is the responsibility of executed tests.
                         </p>
                     </section>
@@ -316,7 +316,7 @@
                         </p>
                         <p class="text-sm leading-relaxed text-[#a0a8b4] mb-4">
                             Does a universal test exist that detects all bugs with a single assertion? Unfortunately not. In practice, different levels of testing are applied depending on the maturity of the software.
-                            Into what types can we divide tests? Or, differently put, what methods are used to search for defects? This depends on both the function of the software and its stage of development. For example, if software’s function is to calculate interest rates, we will not test shopping cart purchases. Similarly, if a banking app is in an early stage without a GUI but with a working backend, we will choose API tests, not E2E tests.
+                            Into what types can we divide tests? Or, differently put, what methods are used to search for bugs? This depends on both the function of the software and its stage of development. For example, if software’s function is to calculate interest rates, we will not test shopping cart purchases. Similarly, if a banking app is in an early stage without a GUI but with a working backend, we will choose API tests, not E2E tests.
                             Each type of test has inherent scope and limits, much like a data type in programming. An int restricts input to integers, so you need not worry about strings - the compiler prevents them.
                         </p>
                         <p class="text-sm leading-relaxed text-[#a0a8b4] mb-4">
@@ -333,7 +333,7 @@
                             E2E tests assume all systems are running. They have the widest scope, verifying complete system logic. Inputs and outputs are asserted without regard for internal workings. Integration tests examine how two or more components behave together. Unit/component tests isolate and check a single component’s functions. Unit tests have the narrowest scope; integration tests cover broader interactions; E2E tests validate end-to-end behavior but cannot isolate the logic of a single function. Other test types are combinations of these.
                         </p>
                         <p class="text-sm leading-relaxed text-[#a0a8b4] mb-4">
-                            New certainties: Defects are revealed by the type of test executed. Tests have inherent scope and assumptions. Tests must assert true/false/unknown. Tests supply data that enable us to understand quality.
+                            New certainties: bugs are revealed by the type of test executed. Tests have inherent scope and assumptions. Tests must assert true/false/unknown. Tests supply data that enable us to understand quality.
                         </p>
                         <p class="text-sm leading-relaxed text-[#a0a8b4]">
                             Software that does not work as intended is ontologically incomplete, requiring intervention—testing and correction. All bugs are signs of imperfection in the realization of the software’s intended being.
@@ -408,7 +408,7 @@
                             <strong class="text-white">From stakeholders’ perspective:</strong> high quality means test data enables accurate evaluation of completion/quality. The better the test suite → the better the data → the more accurate the evaluation. Tests cannot “improve” quality; they can only reveal it and refine risk estimates.
                         </p>
                         <p class="text-sm leading-relaxed text-[#a0a8b4] mb-4">
-                            <strong class="text-white">From testers’ perspective:</strong> high quality means no detected deviations, high coverage of critical scenarios, clear acknowledgment of limitations, and evidence pointing to low defect risk.
+                            <strong class="text-white">From testers’ perspective:</strong> high quality means no detected deviations, high coverage of critical scenarios, clear acknowledgment of limitations, and evidence pointing to low bug risk.
                         </p>
                         <p class="text-sm leading-relaxed text-[#a0a8b4] mb-4">
                             <strong class="text-white">Testing is often called “quality assurance,” but more precisely it is “quality discovery.”</strong> Testing does not create quality; it observes it. Quality is the outcome of design, code, and production processes. Testers do not change systems; they collect data on system behavior against requirements. Testing cannot make a bad system good; it can only reveal that it is bad - that we do not know if it is good.
@@ -426,7 +426,7 @@
                     <section class="mb-12">
                         <h3 class="text-xl font-bold text-[#c8d4e1] mb-4">SUMMARY OF PART ONE</h3>
                         <p class="text-sm leading-relaxed text-[#a0a8b4]">
-                            The philosophy of testing asks ultimate questions in the field of testing, such as: What is a defect? What is the purpose of testing? Software exists to help people; Testing exists to deliver reliable information about software, confirming whether the intended benefit will materialize; Defects are deviations from requirements, and their existence implies the need for testers; Tests must assert (true/false/unknown), each with limits defined by type and maturity of the software; Testing of complex systems cannot achieve complete coverage; instead, it is reducing but not eliminating risk; Quality is internal (requirements + acceptable risk) and external (user expectations), and testing only observes it, it does not create it. Testing is not quality assurance but quality discovery. Quality assured during testing is consequence of testing, to assure quality, is not testing goal. The goal of testing is to discover it.
+                            The philosophy of testing asks ultimate questions in the field of testing, such as: What is a bug? What is the purpose of testing? Software exists to help people; Testing exists to deliver reliable information about software, confirming whether the intended benefit will materialize; Bugs are deviations from requirements, and their existence implies the need for testers; Tests must assert (true/false/unknown), each with limits defined by type and maturity of the software; Testing of complex systems cannot achieve complete coverage; instead, it is reducing but not eliminating risk; Quality is internal (requirements + acceptable risk) and external (user expectations), and testing only observes it, it does not create it. Testing is not quality assurance but quality discovery. Quality assured during testing is consequence of testing, to assure quality, is not testing goal. The goal of testing is to discover it.
                         </p>
                     </section>
                     <hr class="border-t border-[#3f4454] my-8" />
