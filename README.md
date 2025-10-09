@@ -1,4 +1,4 @@
-# filoqa
+# testofilos
 
 philosophy of testing
 
